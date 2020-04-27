@@ -2,10 +2,22 @@
   "name": "investinder",
   "version": "0.1.0",
   "private": true,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
+    "@unform/core": "^2.1.0",
+    "@unform/web": "^2.1.0",
+    "axios": "^0.19.2",
     "cra-template": "1.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1"
+    "react-router-dom": "^5.1.2",
+    "react-scripts": "3.4.1",
+    "styled-components": "^5.1.0",
+    "yup": "^0.28.4"
   }
 }
