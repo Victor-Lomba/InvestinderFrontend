@@ -107,15 +107,14 @@ const SignUp= () => {
             />
             <h3>Insira seu número de telefone (opicional)</h3>
             <Input name="telefone" icon={FiPhone} placeholder="Telefone" />
-            <h3>Crie uma bio que descreva claramente seu perfil (opicional)</h3>
+            <h3>Conte-nos mais sobre sua experiência (opicional)</h3>
             <Textarea name="bio" icon={FiBookOpen} placeholder="Bio" />
             <h3>Descreva seus interesses em palavras chaves, para facilitar filtros e buscas (opicional)</h3>
             <Input name="interesses" icon={FiBriefcase} placeholder="Interesses" />
             <h3>Link público para sua foto de perfil (opicional)</h3>
             <Input name="pic" icon={FiCamera} placeholder="Foto" />
 
-            <Button type="submit">Sou um investidor</Button>
-            <Button type="submit">Sou um consultor</Button>
+            <Button type="submit">Criar conta</Button>
           </Form>
         </AnimationContainer>
       </Content>
