@@ -58,8 +58,8 @@ export const AnimationContainer = styled.div`
   background: #1f1f1f;
   height: 100%;
   max-height: 600px;
-  width: 100%;
-  max-width: 400px;
+  width: 450px;
+  max-width: 600px;
 
   border-radius: 16px;
 
@@ -80,6 +80,7 @@ export const AnimationContainer = styled.div`
 
     h1 {
       margin-bottom: 24px;
+      color: #f4ede8;
     }
 
     a {
@@ -102,8 +103,21 @@ export const AnimationContainer = styled.div`
     text-decoration: none;
     transition: color 0.2s;
 
+    margin-top: -10px;
+
+    & + a {
+      margin-top: 10px;
+    }
+
     display: flex;
     align-items: center;
+
+    span {
+      font-weight: 600;
+      margin-left: 4px;
+
+      margin-right: 4px;
+    }
 
     svg {
       margin-right: 10px;
@@ -123,3 +137,11 @@ export const Background = styled.img`
   left: -21rem;
   position: absolute;
 `;
+
+export const H3 = styled.h3`
+  font-size: 12px;
+  justify-content: center;
+  margin-top: 300px;
+  margin-left: 230px;
+`;
+

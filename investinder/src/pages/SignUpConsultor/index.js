@@ -26,7 +26,7 @@ import { Container, Content, AnimationContainer, Background, Background1, Backgr
 
 var a, b;
 
-const SignUp= () => {
+const SignUpConsultor = () => {
   const formRef = useRef(null);
 
   const { addToast } = useToast();
@@ -45,7 +45,7 @@ const SignUp= () => {
           password: Yup.string().min(5, 'Minimo de 5 digitos'),
           telefone: Yup.string(),
           bio: Yup.string(),
-          interesses: Yup.string(),
+          empresa: Yup.string(),
           pic: Yup.string(),
         });
 
@@ -53,7 +53,7 @@ const SignUp= () => {
           abortEarly: false,
         });
 
-        await api.post('/profile/investidor', data);
+        await api.post('/profile/consultor', data);
 
         history.push('/');
 
@@ -112,8 +112,8 @@ const SignUp= () => {
             <Input name="telefone" icon={FiPhone} placeholder="Telefone" />
             <h3>Conte-nos mais sobre sua experiência (opicional)</h3>
             <Textarea name="bio" icon={FiBookOpen} placeholder="Bio" />
-            <h3>Descreva seus interesses em palavras chaves, para facilitar filtros e buscas (opicional)</h3>
-            <Input name="interesses" icon={FiBriefcase} placeholder="Interesses" />
+            <h3>Especifique com qual empresa você está afiliado (opicional)</h3>
+            <Input name="empresa" icon={FiBriefcase} placeholder="Empresa" />
             <h3>Link público para sua foto de perfil (opicional)</h3>
             <Input name="pic" icon={FiCamera} placeholder="Foto" />
 
@@ -127,4 +127,4 @@ const SignUp= () => {
   );
 };
 
-export default SignUp;
+export default SignUpConsultor;

@@ -11,7 +11,7 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content, AnimationContainer, Background } from './styles';
+import { Container, Content, AnimationContainer, Background, H3 } from './styles';
 import logoImg from '../../assets/logo.png';
 import backgroundImg from '../../assets/circlelarge.png';
 import backgroundImg2 from '../../assets/circle-small.png';
@@ -69,6 +69,7 @@ const SignIn = () => {
   );
 
   return (
+    <>
     <Container>
       <Content>
         <AnimationContainer>
@@ -88,17 +89,26 @@ const SignIn = () => {
             <Button type="submit">Entrar</Button>
           </Form>
 
-          <Link to="/signup">
+          <Link to="/signupI">
             <FiLogIn />
-            Criar conta
+            Criar conta como <span> Investidor</span>
+          </Link>
+          <Link to="/signupC">
+            <FiLogIn />
+            Criar conta como <span className="z" >Consultor</span>ou<span>Acessor</span>
           </Link>
         </AnimationContainer>
       </Content>
 
       <img src={backgroundImg} alt="InvesTinder"></img>
       <Background src={backgroundImg2} />
-
     </Container>
+    <H3>InvesTinder - 2020
+| Desenvolvedores: João Gabriel Eler e Victor Lomba
+| UX/Design: Andrew Canto e Rodrigo Rodrigues
+| Marketing: Thamires Anuda
+| Negócios: Andrew Canto</H3>
+    </>
   );
 };
 

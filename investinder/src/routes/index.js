@@ -5,6 +5,7 @@ import Route from './Route';
 
 import SignIn from '../pages/SingIn';
 import SignUp from '../pages/SignUp';
+import SignUpConsultor from '../pages/SignUpConsultor';
 
 // import Dashboard from '../pages/Dashboard';
 
@@ -13,7 +14,9 @@ const Routes = () => {
     <>
       <Switch>
         <Route path="/" exact component={SignIn} />
-        <Route path="/signup" exact component={SignUp} />
+
+        <Route path="/signupI" exact component={SignUp} />
+        <Route path="/signupC" exact component={SignUpConsultor} />
 
       </Switch>
     </>
