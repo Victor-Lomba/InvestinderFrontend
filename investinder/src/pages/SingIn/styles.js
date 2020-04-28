@@ -5,6 +5,7 @@ export const Container = styled.div`
   height: 100vh;
 
   overflow: hidden;
+  padding-right: 20px;
 
   display: flex;
   align-items: center;
@@ -51,6 +52,8 @@ export const AnimationContainer = styled.div`
   align-items: center;
   flex-direction: column;
   justify-content: center;
+
+  overflow: hidden;
 
   background: #1f1f1f;
   height: 100%;
@@ -103,7 +106,7 @@ export const AnimationContainer = styled.div`
     align-items: center;
 
     svg {
-      margin-right: 16px;
+      margin-right: 10px;
     }
     &:hover {
       color: ${shade(0.2, '#b0a2ee')};

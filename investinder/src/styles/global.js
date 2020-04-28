@@ -7,13 +7,20 @@ export default createGlobalStyle`
     box-sizing: border-box;
     outline: 0;
 
-    overflow: hidden;
+    .example::-webkit-scrollbar {
+    	display: none;
+    }
+    .example {
+    -ms-overflow-style: none;
+    }
   }
 
   body {
     background: #2b2b2b;
     color: #FFF;
     -webkit-font-smoothing: antialiased;
+
+    overflow-x: hidden;
   }
 
   body, input, button {
