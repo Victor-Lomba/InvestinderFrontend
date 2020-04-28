@@ -5,19 +5,18 @@ export const Container = styled.button`
     margin:15px 0;
     width:100%;
     height:50px;
-    font-size: 18px;
-    background: #131419;
+    font-size: 16px;
+    background: ${shade(0.2, '#b0a2ee')};
     border-radius: 10px;
     border:none;
     outline:none;
-    color:#8c8c8c;
+    -webkit-font-smoothing: antialiased;
+    color: #d4d4d4;
     font-weight: 600;
-    box-shadow:  2px 2px 5px rgba(0,0,0,0.5),
-                -3px -3px 7px rgba(255,255,255,0.05);
+
+    transition: background-color 0.2s;
 
   &:hover {
-    background: ${shade(0.2, '#131419')};
-    box-shadow: inset  2px 2px 5px rgba(0,0,0,0.5),
-                inset -3px -3px 7px rgba(255,255,255,0.05);
+    background-color: ${shade(0.4, '#b0a2ee')};
   }
 `;

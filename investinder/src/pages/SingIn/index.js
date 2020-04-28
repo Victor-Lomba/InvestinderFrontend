@@ -13,8 +13,12 @@ import Button from '../../components/Button';
 
 import { Container, Content, AnimationContainer } from './styles';
 
+var a, b;
+
 const SignIn = () => {
   const formRef = useRef(null);
+
+  (a = formRef.current) === null || a === void 0 ? void 0 : a.setErrors({});
 
   const { signIn } = useAuth();
   const { addToast } = useToast();
@@ -24,7 +28,6 @@ const SignIn = () => {
   const handleSubmit = useCallback(
     async (data) => {
       try {
-        formRef.current?.setErrors({});
 
         const schema = Yup.object().shape({
           email: Yup.string()
@@ -47,7 +50,7 @@ const SignIn = () => {
         if (err instanceof Yup.ValidationError) {
           const errors = getValidationErrors(err);
 
-          formRef.current?.setErrors(errors);
+          (b = formRef.current) === null || b === void 0 ? void 0 : b.setErrors(errors);
 
           return;
         }
@@ -66,7 +69,7 @@ const SignIn = () => {
     <Container>
       <Content>
         <AnimationContainer>
-          <img src={logo} alt="InvesTinder" />
+          <img src="" alt="InvesTinder" />
 
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Faça seu login</h1>

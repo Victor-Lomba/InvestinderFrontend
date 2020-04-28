@@ -14,9 +14,6 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
 
-  box-shadow: inset 2px 2px 5px rgba(0,0,0,0.5),
-                inset -3px -3px 7px rgba(255,255,255,0.05);
-
   & + div {
     margin-top: 8px;
   }
@@ -33,8 +30,6 @@ export const Container = styled.div`
     css`
       color: #b0a2ee;
       border-color: #b0a2ee;
-      box-shadow:  1px 1px 1px rgba(0,0,0,0.5),
-                -1px -1px 2px rgba(255,255,255,0.05);
     `}
 
   ${(props) =>
