@@ -57,6 +57,7 @@ export const Container = styled.div`
 export const Error = styled(Tooltip)`
   height: 20px;
   margin-left: 16px;
+
   svg {
     margin: 0;
   }
@@ -70,3 +71,4 @@ export const Error = styled(Tooltip)`
     }
   }
 `;
+

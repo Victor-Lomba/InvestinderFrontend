@@ -36,7 +36,7 @@ const SignIn = () => {
           email: Yup.string()
             .required('E-mail obrigatório')
             .email('Digite um e-mail válido'),
-          password: Yup.string().required('Senha obrigatória'),
+          password: Yup.string().required('Senha obrigatória').min(6),
         });
 
         await schema.validate(data, {

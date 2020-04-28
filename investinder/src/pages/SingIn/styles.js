@@ -112,9 +112,11 @@ export const AnimationContainer = styled.div`
 `;
 
 export const Background = styled.img`
-  overflow: hidden;
-  top: 7rem;
-  left: -13rem;
   z-index: -1;
+  overflow: hidden;
+  height: 800px;
+  width: 800px;
+  top: -15rem;
+  left: -21rem;
   position: absolute;
 `;
