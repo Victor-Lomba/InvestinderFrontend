@@ -4,9 +4,22 @@ import { shade } from 'polished';
 export const Container = styled.div`
   height: 100vh;
 
+  overflow: hidden;
+
   display: flex;
   align-items: center;
+  place-content: center;
   justify-content: center;
+
+  > img {
+    position: absolute;
+    margin-bottom: -80rem;
+    right:-60rem;
+
+    overflow: hidden;
+    z-index: -1;
+  }
+
 `;
 
 export const Content = styled.div`
@@ -49,8 +62,15 @@ export const AnimationContainer = styled.div`
 
   animation: ${appearFromLeft} 1s;
 
+  img {
+    max-width: 350px;
+    max-height: 350px;
+    margin-bottom: 0;
+  }
+
   form {
     margin: 80px 0;
+    margin-top: 0;
     width: 340px;
     text-align: center;
     margin-bottom: 24px;
@@ -91,8 +111,10 @@ export const AnimationContainer = styled.div`
   }
 `;
 
-export const Background = styled.div`
-  flex: 1;
-  background: no-repeat center;
-  background-size: cover;
+export const Background = styled.img`
+  overflow: hidden;
+  top: 7rem;
+  left: -13rem;
+  z-index: -1;
+  position: absolute;
 `;

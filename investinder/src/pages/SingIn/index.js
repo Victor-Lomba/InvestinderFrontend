@@ -11,7 +11,10 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content, AnimationContainer } from './styles';
+import { Container, Content, AnimationContainer, Background } from './styles';
+import logoImg from '../../assets/logo.png';
+import backgroundImg from '../../assets/circlelarge.png';
+import backgroundImg2 from '../../assets/circle-small.png';
 
 var a, b;
 
@@ -69,7 +72,7 @@ const SignIn = () => {
     <Container>
       <Content>
         <AnimationContainer>
-          <img src="" alt="InvesTinder" />
+          <img src={logoImg} alt="InvesTinder" />
 
           <Form ref={formRef} onSubmit={handleSubmit}>
             <h1>Faça seu login</h1>
@@ -91,6 +94,9 @@ const SignIn = () => {
           </Link>
         </AnimationContainer>
       </Content>
+
+      <img src={backgroundImg} alt="InvesTinder"></img>
+      <Background src={backgroundImg2} />
 
     </Container>
   );
