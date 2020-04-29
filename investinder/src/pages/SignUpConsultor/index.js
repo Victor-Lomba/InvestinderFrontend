@@ -18,7 +18,7 @@ import { useToast } from '../../hooks/toast';
 import Input from '../../components/Input';
 import Textarea from '../../components/Textarea';
 import Button from '../../components/Button';
-import logoImg from '../../assets/logo.png';
+import logoImg from '../../assets/logoCons.png';
 import backgroundImg from '../../assets/circlelarge.png';
 import backgroundImg2 from '../../assets/circle-small.png';
 
