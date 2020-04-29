@@ -95,7 +95,7 @@ const SignIn = () => {
           </Link>
           <Link to="/signupC">
             <FiLogIn />
-            Criar conta como <span className="z" >Acessor</span>ou<span>Consultor</span>
+            Criar conta como <span className="z" >Assessor</span>ou<span>Consultor</span>
           </Link>
         </AnimationContainer>
       </Content>
