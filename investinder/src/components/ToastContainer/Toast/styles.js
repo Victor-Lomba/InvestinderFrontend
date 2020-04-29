@@ -1,18 +1,29 @@
 import styled, { css } from 'styled-components';
 import { animated } from 'react-spring';
 
+import { shade } from 'polished';
+
 const toastTypeVariations = {
   info: css`
-    background: #b0a2ee;
+    background: ${shade(0.2, '#b0a2ee')};
     color: #dfdfdf;
+    strong {
+      color: #dfdfdf;
+    }
   `,
   success: css`
     background: #e6fffa;
     color: #2e656a;
+    strong {
+      color: #2e656a;
+    }
   `,
   error: css`
     background: #fddede;
     color: #c53030;
+    strong {
+      color: #c53030;
+    }
   `,
 };
 

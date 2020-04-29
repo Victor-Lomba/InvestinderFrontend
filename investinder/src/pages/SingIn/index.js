@@ -11,10 +11,10 @@ import getValidationErrors from '../../utils/getValidationErrors';
 import Input from '../../components/Input';
 import Button from '../../components/Button';
 
-import { Container, Content, AnimationContainer, Background, H3 } from './styles';
+import { Container, Content, AnimationContainer, Background, Background2, H3 } from './styles';
 import logoImg from '../../assets/logo.png';
-import backgroundImg from '../../assets/circlelarge.png';
-import backgroundImg2 from '../../assets/circle-small.png';
+import backgroundImg2 from '../../assets/circlelarge.png';
+import backgroundImg from '../../assets/circle-small.png';
 
 var a, b;
 
@@ -95,12 +95,12 @@ const SignIn = () => {
           </Link>
           <Link to="/signupC">
             <FiLogIn />
-            Criar conta como <span className="z" >Consultor</span>ou<span>Acessor</span>
+            Criar conta como <span className="z" >Acessor</span>ou<span>Consultor</span>
           </Link>
         </AnimationContainer>
       </Content>
 
-      <img src={backgroundImg} alt="InvesTinder"></img>
+      <Background2 src={backgroundImg} />
       <Background src={backgroundImg2} />
     </Container>
     <H3>InvesTinder - 2020

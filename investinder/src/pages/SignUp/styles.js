@@ -37,6 +37,17 @@ const appearFromRight = keyframes`
   }
 `;
 
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
 export const AnimationContainer = styled.div`
   display: flex;
   align-items: center;
@@ -104,6 +115,7 @@ export const AnimationContainer = styled.div`
 `;
 export const Background = styled.div`
   position: relative;
+  animation: ${appearFromLeft} 1s;
 
   img {
     max-width: 500px;
@@ -136,20 +148,23 @@ export const Background = styled.div`
 `;
 
 export const Background1 = styled.img`
-  position: absolute;
-  margin-bottom: -80rem;
-  right:-60rem;
-
-  overflow: hidden;
   z-index: -1;
+  overflow: hidden;
+  height: 1000px;
+  width: 1000px;
+  top: -22rem;
+  left: -33rem;
+  position: absolute;
+  animation: ${appearFromRight} 1s;
 `;
 
 export const Background2 = styled.img`
-  z-index: -1;
-  overflow: hidden;
-  height: 800px;
-  width: 800px;
-  top: -15rem;
-  left: -21rem;
   position: absolute;
+  animation: ${appearFromLeft} 1s;
+  margin-bottom: -80rem;
+  margin-top: 350px;
+  right: -30rem;
+  height: 900px;
+  width: 900px;
+  z-index: -1;
 `;
