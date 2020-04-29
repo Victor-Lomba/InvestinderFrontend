@@ -20,6 +20,10 @@ export default createGlobalStyle`
     color: #FFF;
     -webkit-font-smoothing: antialiased;
 
+    ::-webkit-scrollbar {
+    display: none;
+}
+
     overflow-x: hidden;
   }
 
