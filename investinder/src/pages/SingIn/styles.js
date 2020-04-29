@@ -4,9 +4,6 @@ import { shade } from 'polished';
 export const Container = styled.div`
   height: 100vh;
 
-  overflow: hidden;
-  padding-right: 20px;
-
   display: flex;
   align-items: center;
   place-content: center;

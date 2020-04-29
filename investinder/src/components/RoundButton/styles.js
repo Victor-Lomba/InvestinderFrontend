@@ -3,11 +3,11 @@ import { shade } from 'polished';
 
 export const Container = styled.button`
     margin:15px 0;
-    width:100%;
-    height:50px;
+    width: 70px;
+    height: 70px;
     font-size: 16px;
     background: ${shade(0.2, '#b0a2ee')};
-    border-radius: 10px;
+    border-radius: 50%;
     border:none;
     outline:none;
     -webkit-font-smoothing: antialiased;
@@ -16,7 +16,13 @@ export const Container = styled.button`
 
     transition: background-color 0.2s;
 
+    svg {
+      margin-top: 10px;
+      transition: color 0.2s;
+    }
+
   &:hover {
     background-color: ${shade(0.4, '#b0a2ee')};
+    color: ${shade(0.2, '#f4ede8')};
   }
 `;
