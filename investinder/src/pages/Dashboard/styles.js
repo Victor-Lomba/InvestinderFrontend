@@ -1,5 +1,4 @@
-import styled, { keyframes } from 'styled-components';
-
+import styled, { keyframes, css } from 'styled-components';
 
 const appearFromDown = keyframes`
   from {
@@ -31,6 +30,26 @@ const appearFromRight = keyframes`
   to {
     opacity: 1;
     transform: translateX(0);
+  }
+`;
+
+const swipeRight = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(150px);
+  }
+`;
+
+const swipeLeft = keyframes`
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-150px);
   }
 `;
 
@@ -79,6 +98,18 @@ export const Content = styled.div`
 
 export const AnimationContainer = styled.div`
   animation: ${appearFromDown} 1s;
+
+  ${(props) =>
+    props.isLiked &&
+    css`
+      animation: ${swipeRight} 1s;
+    `}
+
+    ${(props) =>
+    props.isDisliked &&
+    css`
+      animation: ${swipeLeft} 1s;
+    `}
 
   display: flex;
 
@@ -182,11 +213,22 @@ export const LButton = styled.button`
   background: transparent;
   margin-left: 1200px;
   margin-top: -110px;
-  transition: border-color 0.2s;
+  transition: 0.2s;
   color: #b0a2ee;
 
   &:hover {
     color: #c53030;
     border: 1px solid #c53030;
   }
+`;
+
+export const Background = styled.img`
+  z-index: -1;
+  overflow: hidden;
+  height: 1000px;
+  width: 1000px;
+  top: -22rem;
+  left: -33rem;
+  position: absolute;
+  animation: ${appearFromRight} 1s;
 `;
