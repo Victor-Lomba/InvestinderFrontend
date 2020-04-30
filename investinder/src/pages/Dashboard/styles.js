@@ -1,4 +1,61 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
+
+import { shade } from 'polished';
+
+const appearFromDown = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
+const appearFromLeft = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const appearFromRight = keyframes`
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+`;
+
+const appearRightBut = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(300px) translateX(100px) rotate(540deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+`;
+
+const appearLeftBut = keyframes`
+  from {
+    opacity: 0;
+    transform: translateY(200px) translateX(-100px) rotate(360deg);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) translateX(0) rotate(0deg);
+  }
+`;
 
 export const Container = styled.div`
   height: 100vh;
@@ -22,6 +79,8 @@ export const Content = styled.div`
 `;
 
 export const AnimationContainer = styled.div`
+  animation: ${appearFromDown} 1s;
+
   display: flex;
 
   flex-direction: column;
@@ -72,9 +131,33 @@ export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
 
+  .but1 {
+    animation: ${appearLeftBut} 1s;
+    background-color: #f4ede8;
+    color: #b0a2ee;
+    transition: transform 0.4s, background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: #b0a2ee;
+      color: #f4ede8;
+      transform: translateY(-10px);
+    }
+  }
+
+  .but2 {
+    animation: ${appearRightBut} 1s;
+    transition: transform 0.4s, background-color 0.2s, color 0.2s;
+
+    &:hover {
+      background-color: #f4ede8;
+      color: #b0a2ee;
+      transform: translateY(-10px);
+    }
+  }
+
   > button {
     margin-top: 20px;
-    margin-right: 50px;
-    margin-left: 50px;
+    margin-right: 75px;
+    margin-left: 75px;
   }
 `;

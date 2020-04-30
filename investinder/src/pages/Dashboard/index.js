@@ -43,8 +43,8 @@ const Dashboard = () => {
             <h3>Node.js, ReactJS, React Native</h3>
 
             <ButtonContainer>
-              <RButton icon={FiX}></RButton>
-              <RButton icon={FiHeart}></RButton>
+              <RButton onClick={} className="but1" icon={FiX}></RButton>
+              <RButton onClick={} className="but2" icon={FiHeart}></RButton>
             </ButtonContainer>
           </AnimationContainer>
         </Content>
