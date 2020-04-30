@@ -1,5 +1,8 @@
 import styled, { keyframes, css } from 'styled-components';
 
+export const NEXT = "NEXT";
+export const PREV = "PREV";
+
 const appearFromDown = keyframes`
   from {
     opacity: 0;
