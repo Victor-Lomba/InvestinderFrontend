@@ -1,6 +1,5 @@
 import styled, { keyframes } from 'styled-components';
 
-import { shade } from 'polished';
 
 const appearFromDown = keyframes`
   from {
@@ -83,6 +82,8 @@ export const AnimationContainer = styled.div`
 
   display: flex;
 
+  margin-top: -25px;
+
   flex-direction: column;
   align-items: center;
 
@@ -159,5 +160,33 @@ export const ButtonContainer = styled.div`
     margin-top: 20px;
     margin-right: 75px;
     margin-left: 75px;
+  }
+`;
+
+export const Logo = styled.img`
+  animation: ${appearFromLeft} 1s;
+  position: relative;
+  margin-top: -80px;
+  max-width: 350px;
+  max-height: 350px;
+  margin-bottom: 0;
+  margin-right: 1100px;
+`;
+
+export const LButton = styled.button`
+  height: 60px;
+  cursor: pointer;
+  width: 60px;
+  border-radius: 4px;
+  border: 1px solid #b0a2ee;
+  background: transparent;
+  margin-left: 1200px;
+  margin-top: -110px;
+  transition: border-color 0.2s;
+  color: #b0a2ee;
+
+  &:hover {
+    color: #c53030;
+    border: 1px solid #c53030;
   }
 `;
