@@ -97,6 +97,7 @@ export const Content = styled.div`
   max-width: 900px;
   height: 100%;
   max-height: 1000px;
+  margin-bottom: -50px;
 `;
 
 export const AnimationContainer = styled.div`
@@ -116,7 +117,7 @@ export const AnimationContainer = styled.div`
 
   display: flex;
 
-  margin-top: -25px;
+  margin-top: 30px;
 
   flex-direction: column;
   align-items: center;
@@ -200,7 +201,7 @@ export const ButtonContainer = styled.div`
 export const Logo = styled.img`
   animation: ${appearFromLeft} 1s;
   position: relative;
-  margin-top: -80px;
+  margin-top: -60px;
   max-width: 350px;
   max-height: 350px;
   margin-bottom: 0;
@@ -234,4 +235,19 @@ export const Background = styled.img`
   left: -33rem;
   position: absolute;
   animation: ${appearFromRight} 1s;
+`;
+
+export const Background2 = styled.img`
+  position: absolute;
+  margin-bottom: -80rem;
+  margin-top: 150px;
+  right: -30rem;
+  height: 900px;
+  width: 900px;
+  z-index: -1;
+  animation: ${appearFromRight} 1s;
+`;
+
+export const FormCont = styled.div`
+  margin-top: -60px;
 `;

@@ -167,7 +167,7 @@ export const Background = styled.img`
 export const Background2 = styled.img`
   position: absolute;
   margin-bottom: -80rem;
-  margin-top: 350px;
+  margin-top: 150px;
   right: -30rem;
   height: 900px;
   width: 900px;
@@ -179,8 +179,8 @@ export const H3 = styled.h3`
   animation: ${appearFromDown} 1s;
   font-size: 12px;
   justify-content: center;
-  margin-top: 300px;
-  margin-left: 230px;
+  margin-top: 100px;
+  margin-left: 250px;
 `;
 
 
