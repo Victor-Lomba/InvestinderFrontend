@@ -250,4 +250,6 @@ export const Background2 = styled.img`
 
 export const FormCont = styled.div`
   margin-top: -60px;
+  margin-bottom: 15px;
 `;
+

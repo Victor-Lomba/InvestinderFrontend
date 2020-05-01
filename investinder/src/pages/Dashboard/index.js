@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { FiPower, FiHeart, FiX, FiSearch } from  'react-icons/fi'
 import { useSwipeable } from "react-swipeable";
@@ -27,6 +27,7 @@ import { Container,
           Background,
           Background2,
           FormCont,
+          H3,
           PREV,
           NEXT } from './styles';
 
@@ -102,6 +103,17 @@ const Dashboard = () => {
       console.log(isDisliked);
     } catch(err) {}
   }
+
+  const search = useCallback(
+    async(data) => {
+    try {
+      // const peeps = await api.get('investidores');
+
+      // peeps.filter(peeps.data.interesses === data.search);
+    } catch (err) {
+
+    }
+  }, []);
 
   return (
     <>
