@@ -124,8 +124,8 @@ const Dashboard = () => {
                     <FiPower size={18} />
                 </LButton>
           <FormCont>
-            <Form ref={formRef} onSubmit={()=>{}}>
-              <Input name="search" icon={FiSearch} placeholder="Filtrar interesses" />
+            <Form ref={formRef} onSubmit={search}>
+              <Input name="search" icon={FiSearch} placeholder="Filtrar" />
             </Form>
           </FormCont>
           <AnimationContainer {... handlers} isLiked={isLiked} isDisliked={isDisliked} dir={state.dir} sliding={state.sliding} >
