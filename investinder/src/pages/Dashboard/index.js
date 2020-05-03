@@ -35,6 +35,7 @@ const Dashboard = () => {
   const initialState = { pos: 0, sliding: false, dir: NEXT };
   const u = localStorage.getItem('@InvesTinder:user');
   const user = JSON.parse(u);
+  const id = user.id;
 
   const history = useHistory();
   const formRef = useRef(null);
@@ -59,11 +60,7 @@ const Dashboard = () => {
     trackMouse: true
   });
 
-  const id = user.id;
-
   useEffect(()=>{
-    console.log(user.interesses);
-    console.log(user.empresa);
     if (user.interesses !== undefined) {
       api.get('/profile/investidor/list', {
         headers: {
@@ -71,8 +68,8 @@ const Dashboard = () => {
         }
     }).then(response =>{
         setProfiles(response.data);
-        profiles.filter(profile => profile.id !== id);
     });
+    }
     if (user.empresa !== undefined){
       api.get('/profile/consultor/list', {
         headers: {
@@ -80,60 +77,47 @@ const Dashboard = () => {
         }
     }).then(response =>{
         setProfiles(response.data);
-        profiles.filter(profile => profile.id !== id);
     });
-    }
     }
 }, [id]);
 
   async function handleLike(ID) {
-    try {
-      if (user.interesses !== undefined){
-        api.post(`/profile/investidor/${ID}/like`, {
-          headers: {
-            UserId: id,
-          }
-        }).then(response =>{
-          console.log(response.data);
-      });
-        setIsLiked(true);
+    if (user.interesses !== undefined){
+      api.post(`/profile/investidor/${ID}/like`, {
+        UserId: id
+      }).then(response =>{
+        console.log(response.data);
+    });
+      setIsLiked(true);
 
-        setTimeout(() => {
-          setIsLiked(false);
-          setIsDisliked(false);
-        }, 1000);
+      setTimeout(() => {
+        setIsLiked(false);
+        setIsDisliked(false);
+      }, 1000);
 
-        setProfiles(profiles.filter(user => user.id !== id));
-      }
-      if(user.empresa !== undefined){
-        api.post(`/profile/consultor/${ID}/like`, {
-          headers: {
-            UserId: id,
-          }
-        }).then(response =>{
-          console.log(response.data);
-      });
-        setIsLiked(true);
+    }
+    if(user.empresa !== undefined){
+      api.post(`/profile/consultor/${ID}/like`, {
+        UserId: id
+      }).then(response =>{
+        console.log(response.data);
+    });
+      setIsLiked(true);
 
-        setTimeout(() => {
-          setIsLiked(false);
-          setIsDisliked(false);
-        }, 1000);
+      setTimeout(() => {
+        setIsLiked(false);
+        setIsDisliked(false);
+      }, 1000);
+    }
 
-        setProfiles(profiles.filter(user => user.id !== id));
-      }
-
-      console.log(isLiked);
-    } catch(err) {}
+    console.log(isLiked);
   }
 
   async function handleDislike(ID) {
     try {
       if(user.interesses !== undefined){
         api.post(`/profile/investidor/${ID}/dislike`, {
-          headers: {
-            UserId: id,
-          }
+          UserId: id
         }).then(response =>{
           console.log(response.data);
       });
@@ -145,13 +129,10 @@ const Dashboard = () => {
           setIsDisliked(false);
         }, 1000);
 
-        setProfiles(profiles.filter(user => user.id !== id));
       }
       if (user.empresa !== undefined){
         api.post(`/profile/investidor/${ID}/dislike`, {
-          headers: {
-            UserId: id,
-          }
+          UserId: id
         }).then(response =>{
           console.log(response.data);
       });
@@ -163,7 +144,6 @@ const Dashboard = () => {
           setIsDisliked(false);
         }, 1000);
 
-        setProfiles(profiles.filter(user => user.id !== id));
       }
 
       console.log(isDisliked);
@@ -195,7 +175,7 @@ const Dashboard = () => {
             </Form>
           </FormCont>
           <AnimationContainer {... handlers} isLiked={isLiked} isDisliked={isDisliked} dir={state.dir} sliding={state.sliding} >
-            <img src={ profiles.pic !== null ? altpic : profiles.pic }
+            <img src={ !!profiles.pic ? profiles.pic : altpic }
             alt="O usuário utiliza uma foto inválida."/>
 
             <h1>{ profiles.name }</h1>
@@ -223,7 +203,7 @@ const Dashboard = () => {
       case "reset":
         return initialState;
       case PREV:
-        handleLike()
+        handleLike(profiles.id)
         return {
           ...state,
           dir: PREV,
@@ -231,7 +211,7 @@ const Dashboard = () => {
           pos: state.pos === 0 ? null : state.pos - 1
         };
       case NEXT:
-        handleDislike()
+        handleDislike(profiles.id)
         return {
           ...state,
           dir: NEXT,
