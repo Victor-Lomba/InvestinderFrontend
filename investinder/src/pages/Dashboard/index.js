@@ -62,32 +62,64 @@ const Dashboard = () => {
   const id = user.id;
 
   useEffect(()=>{
-    api.get('/profile/investidor/list', {
-      headers: {
-          uid: id,
-      }
-  }).then(response =>{
-      setProfiles(response.data);
-  });
+    if (user.interesses !== undefined) {
+      api.get('/profile/investidor/list', {
+        headers: {
+            uid: id,
+        }
+    }).then(response =>{
+        setProfiles(response.data);
+        profiles.filter(profile => profile.id !== id);
+    });
+    if (user.empresa !== undefined){
+      api.get('/profile/consultor/list', {
+        headers: {
+            uid: id,
+        }
+    }).then(response =>{
+        setProfiles(response.data);
+        profiles.filter(profile => profile.id !== id);
+    });
+    }
+    }
 }, [id]);
 
   async function handleLike(ID) {
     try {
-      api.post(`/profile/investidor/${ID}/like`, {
-        headers: {
-          UserId: id,
-        }
-      }).then(response =>{
-        console.log(response.data);
-    });
-      setIsLiked(true);
+      if (user.interesses !== undefined){
+        api.post(`/profile/investidor/${ID}/like`, {
+          headers: {
+            UserId: id,
+          }
+        }).then(response =>{
+          console.log(response.data);
+      });
+        setIsLiked(true);
 
-      setTimeout(() => {
-        setIsLiked(false);
-        setIsDisliked(false);
-      }, 1000);
+        setTimeout(() => {
+          setIsLiked(false);
+          setIsDisliked(false);
+        }, 1000);
 
-      setProfiles(profiles.filter(user => user.id !== id));
+        setProfiles(profiles.filter(user => user.id !== id));
+      }
+      if(user.empresa !== undefined){
+        api.post(`/profile/consultor/${ID}/like`, {
+          headers: {
+            UserId: id,
+          }
+        }).then(response =>{
+          console.log(response.data);
+      });
+        setIsLiked(true);
+
+        setTimeout(() => {
+          setIsLiked(false);
+          setIsDisliked(false);
+        }, 1000);
+
+        setProfiles(profiles.filter(user => user.id !== id));
+      }
 
       console.log(isLiked);
     } catch(err) {}
@@ -95,22 +127,42 @@ const Dashboard = () => {
 
   async function handleDislike(ID) {
     try {
-      api.post(`/profile/investidor/${ID}/dislike`, {
-        headers: {
-          UserId: id,
-        }
-      }).then(response =>{
-        console.log(response.data);
-    });
+      if(user.interesses !== undefined){
+        api.post(`/profile/investidor/${ID}/dislike`, {
+          headers: {
+            UserId: id,
+          }
+        }).then(response =>{
+          console.log(response.data);
+      });
 
-      setIsDisliked(true);
+        setIsDisliked(true);
 
-      setTimeout(() => {
-        setIsLiked(false);
-        setIsDisliked(false);
-      }, 1000);
+        setTimeout(() => {
+          setIsLiked(false);
+          setIsDisliked(false);
+        }, 1000);
 
-      setProfiles(profiles.filter(user => user.id !== id));
+        setProfiles(profiles.filter(user => user.id !== id));
+      }
+      if (user.empresa !== undefined){
+        api.post(`/profile/investidor/${ID}/dislike`, {
+          headers: {
+            UserId: id,
+          }
+        }).then(response =>{
+          console.log(response.data);
+      });
+
+        setIsDisliked(true);
+
+        setTimeout(() => {
+          setIsLiked(false);
+          setIsDisliked(false);
+        }, 1000);
+
+        setProfiles(profiles.filter(user => user.id !== id));
+      }
 
       console.log(isDisliked);
     } catch(err) {}
@@ -120,11 +172,10 @@ const Dashboard = () => {
     async(data) => {
     try {
       if (profiles.interesses){
-        profiles.filter(profile => profile.interesses === data.search);
+        profiles.filter(profile => profile.interesses.trim() === data.search);
       }
       return
     } catch (err) {
-
     }
   }, [profiles]);
 

@@ -7,7 +7,6 @@ import SignIn from '../pages/SingIn';
 import SignUp from '../pages/SignUp';
 import SignUpConsultor from '../pages/SignUpConsultor';
 import Dashboard from '../pages/Dashboard';
-import DashboardCons from '../pages/DashboardConsultor';
 
 const Routes = () => {
   return (
@@ -19,7 +18,6 @@ const Routes = () => {
         <Route path="/signupc" exact component={SignUpConsultor} />
 
         <Route path="/dashboard" exact component={Dashboard} isPrivate />
-        <Route path="/dashboardc" exact component={DashboardCons} isPrivate />
       </Switch>
     </>
   );
