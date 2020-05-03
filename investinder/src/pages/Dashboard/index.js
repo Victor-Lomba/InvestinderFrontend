@@ -75,7 +75,7 @@ const Dashboard = () => {
     try {
       api.post(`/profile/investidor/${ID}/like`, {
         headers: {
-          Authorization: id,
+          UserId: id,
         }
       }).then(response =>{
         console.log(response.data);
@@ -97,7 +97,7 @@ const Dashboard = () => {
     try {
       api.post(`/profile/investidor/${ID}/dislike`, {
         headers: {
-          Authorization: id,
+          UserId: id,
         }
       }).then(response =>{
         console.log(response.data);
@@ -142,16 +142,16 @@ const Dashboard = () => {
             </Form>
           </FormCont>
           <AnimationContainer {... handlers} isLiked={isLiked} isDisliked={isDisliked} dir={state.dir} sliding={state.sliding} >
-            <img src={profiles.pic !== null ? altpic : profiles.pic }
+            <img src={ profiles.pic !== null ? altpic : profiles.pic }
             alt="O usuário utiliza uma foto inválida."/>
 
-            <h1>{profiles.name}</h1>
+            <h1>{ profiles.name }</h1>
 
             <h2>Bio:</h2>
-            <h3>{profiles.bio}</h3>
+            <h3>{ profiles.bio }</h3>
 
             <h2>Empresa:</h2>
-            <h3>{profiles.empresa}</h3>
+            <h3>{ profiles.empresa }</h3>
 
             <ButtonContainer>
               <RButton onClick={() => handleDislike(profiles.id)} className="but1" icon={FiX}></RButton>
