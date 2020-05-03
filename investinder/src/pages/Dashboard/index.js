@@ -84,18 +84,14 @@ const Dashboard = () => {
     });
     }
     }
-}, [id]);
+  }, [id]);
 
   async function handleLike(ID) {
     try {
       if (user.interesses !== undefined){
-        api.post(`/profile/investidor/${ID}/like`, {
-          headers: {
-            UserId: id,
-          }
-        }).then(response =>{
-          console.log(response.data);
-      });
+        api.post(`/profile/investidor/${ID}/like`, {headers: {UserId: id,}}).then(response =>{
+            console.log(response.data);
+        });
         setIsLiked(true);
 
         setTimeout(() => {
