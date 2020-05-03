@@ -62,6 +62,8 @@ const Dashboard = () => {
   const id = user.id;
 
   useEffect(()=>{
+    console.log(user.interesses);
+    console.log(user.empresa);
     if (user.interesses !== undefined) {
       api.get('/profile/investidor/list', {
         headers: {
