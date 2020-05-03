@@ -7,6 +7,7 @@ import SignIn from '../pages/SingIn';
 import SignUp from '../pages/SignUp';
 import SignUpConsultor from '../pages/SignUpConsultor';
 import Dashboard from '../pages/Dashboard';
+import DashboardCons from '../pages/DashboardConsultor';
 
 const Routes = () => {
   return (
@@ -14,11 +15,11 @@ const Routes = () => {
       <Switch>
         <Route path="/" exact component={SignIn} />
 
-        <Route path="/signupI" exact component={SignUp} />
-        <Route path="/signupC" exact component={SignUpConsultor} />
+        <Route path="/signupi" exact component={SignUp} />
+        <Route path="/signupc" exact component={SignUpConsultor} />
 
         <Route path="/dashboard" exact component={Dashboard} isPrivate />
-
+        <Route path="/dashboardc" exact component={DashboardCons} isPrivate />
       </Switch>
     </>
   );

@@ -48,8 +48,6 @@ const SignIn = () => {
           password: data.password,
         });
 
-        localStorage.setItem('UserId', data.id);
-
         history.push('/dashboard');
       } catch (err) {
         if (err instanceof Yup.ValidationError) {

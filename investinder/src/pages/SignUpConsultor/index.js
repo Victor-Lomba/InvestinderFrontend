@@ -68,14 +68,15 @@ const SignUpConsultor = () => {
 
           (b = formRef.current) === null || b === void 0 ? void 0 : b.setErrors(errors);
 
+          addToast({
+            type: 'error',
+            title: 'Erro na criação de conta',
+            description: 'Ocorreu um erro ao criar a conta',
+          });
+
           return;
         }
       }
-      addToast({
-        type: 'error',
-        title: 'Erro na criação de conta',
-        description: 'Ocorreu um erro ao criar a conta',
-      });
     },
     [addToast, history],
   );

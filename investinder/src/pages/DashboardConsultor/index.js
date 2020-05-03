@@ -15,7 +15,6 @@ import Input from '../../components/Input';
 
 import backgroundImg2 from '../../assets/circlelarge.png';
 import backgroundImg from '../../assets/circle-small.png';
-import altpic from '../../assets/altpic.jpg';
 
 import logoImg from '../../assets/logo.png';
 
@@ -33,9 +32,6 @@ import { Container,
 
 const Dashboard = () => {
   const initialState = { pos: 0, sliding: false, dir: NEXT };
-  const u = localStorage.getItem('@InvesTinder:user');
-  const user = JSON.parse(u);
-
   const history = useHistory();
   const formRef = useRef(null);
   const [profiles, setProfiles] = useState([]);
@@ -59,27 +55,24 @@ const Dashboard = () => {
     trackMouse: true
   });
 
-  const id = user.id;
-
   useEffect(()=>{
-    api.get('/profile/investidor/list', {
-      headers: {
-          uid: id,
-      }
-  }).then(response =>{
-      setProfiles(response.data);
-  });
-}, [id]);
+    // api.get('profile', {
+    //     headers: {
+    //         Authorization: id,
+    //     }
+    // }).then(response =>{
+    //     setProfiles(response.data);
+    // });
+}, [isLiked, isDisliked]);
 
-  async function handleLike(ID) {
+  async function handleLike() {
     try {
-      api.post(`/profile/investidor/${ID}/like`, {
-        headers: {
-          Authorization: id,
-        }
-      }).then(response =>{
-        console.log(response.data);
-    });
+      // await api.post('like', {
+      //   headers: {
+      //     Authorization: id,
+      //   }
+      // });
+
       setIsLiked(true);
 
       setTimeout(() => {
@@ -87,21 +80,17 @@ const Dashboard = () => {
         setIsDisliked(false);
       }, 1000);
 
-      setProfiles(profiles.filter(user => user.id !== id));
-
       console.log(isLiked);
     } catch(err) {}
   }
 
-  async function handleDislike(ID) {
+  async function handleDislike() {
     try {
-      api.post(`/profile/investidor/${ID}/dislike`, {
-        headers: {
-          Authorization: id,
-        }
-      }).then(response =>{
-        console.log(response.data);
-    });
+      // await api.post('dislike', {
+      //   headers: {
+      //     Authorization: id,
+      //   }
+      // });
 
       setIsDisliked(true);
 
@@ -110,8 +99,6 @@ const Dashboard = () => {
         setIsDisliked(false);
       }, 1000);
 
-      setProfiles(profiles.filter(user => user.id !== id));
-
       console.log(isDisliked);
     } catch(err) {}
   }
@@ -119,14 +106,13 @@ const Dashboard = () => {
   const search = useCallback(
     async(data) => {
     try {
-      if (profiles.interesses){
-        profiles.filter(profile => profile.interesses === data.search);
-      }
-      return
+      // const peeps = await api.get('investidores');
+
+      // peeps.filter(peeps.data.interesses === data.search);
     } catch (err) {
 
     }
-  }, [profiles]);
+  }, []);
 
   return (
     <>
@@ -142,20 +128,20 @@ const Dashboard = () => {
             </Form>
           </FormCont>
           <AnimationContainer {... handlers} isLiked={isLiked} isDisliked={isDisliked} dir={state.dir} sliding={state.sliding} >
-            <img src={profiles.pic !== null ? altpic : profiles.pic }
-            alt="O usuário utiliza uma foto inválida."/>
+            <img src="https://scontent.fsdu18-1.fna.fbcdn.net/v/t1.0-9/79427507_1727159847421291_4016333500285190144_n.jpg?_nc_cat=103&_nc_sid=85a577&_nc_ohc=27Zz8ZZNI-AAX92cLA4&_nc_ht=scontent.fsdu18-1.fna&oh=f5d5cc42f9e0c644c905453b18c3e0af&oe=5ECE09C2"
+            alt="Eler"/>
 
-            <h1>{profiles.name}</h1>
+            <h1>João Gabriel Eler Mendes</h1>
 
             <h2>Bio:</h2>
-            <h3>{profiles.bio}</h3>
+            <h3>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Provident non dolores quam, recusandae assumenda neque esse facilis itaque optio impedit deserunt molestiae ab doloremque unde eaque a sapiente placeat tempora!</h3>
 
-            <h2>Empresa:</h2>
-            <h3>{profiles.empresa}</h3>
+            <h2>Interesses:</h2>
+            <h3>Node.js, ReactJS, React Native</h3>
 
             <ButtonContainer>
-              <RButton onClick={() => handleDislike(profiles.id)} className="but1" icon={FiX}></RButton>
-              <RButton onClick={() => handleLike(profiles.id)} className="but2" icon={FiHeart}></RButton>
+              <RButton onClick={handleDislike} className="but1" icon={FiX}></RButton>
+              <RButton onClick={handleLike} className="but2" icon={FiHeart}></RButton>
             </ButtonContainer>
           </AnimationContainer>
         </Content>
