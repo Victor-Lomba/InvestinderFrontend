@@ -63,7 +63,7 @@ export const Logo = styled.img`
 `;
 
 export const ContainerCont = styled.div`
-  margin-top: 1200px;
+  margin-top: -100px;
 `
 
 export const Content = styled.div`

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { FiPower, FiHeart, FiX, FiSearch } from  'react-icons/fi'
 import { useSwipeable } from "react-swipeable";
 import { Form } from '@unform/web';
 
 import { useAuth } from '../../hooks/auth';
-import { useToast } from '../../hooks/toast';
 
 
 import api from '../../services/api';
@@ -37,13 +36,11 @@ const Dashboard = () => {
   const user = JSON.parse(u);
   const id = user.id;
 
-  const history = useHistory();
   const formRef = useRef(null);
   const [profiles, setProfiles] = useState([]);
   const [isLiked, setIsLiked] = useState(false);
   const [isDisliked, setIsDisliked] = useState(false);
 
-  const { addToast } = useToast();
   const { signOut } = useAuth();
 
   const [state, dispatch] = React.useReducer(reducer, initialState);

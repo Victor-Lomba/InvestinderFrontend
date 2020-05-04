@@ -43,6 +43,8 @@ const Matches = () => {
 
     // setProfiles(profiles.filter(profile => profile !== null));
 
+    console.log(profiles);
+
     return (
     <>
     <Logo src={logoImg} />
@@ -53,10 +55,6 @@ const Matches = () => {
           </Link>
     </LinkContainer>
     <Container>
-    <a href="/dashboard">
-            <FiHeart />
-            Voltar à pagina principal
-          </a>
 
         <ContainerCont>
           {profiles.map(profile => profile !== null && (
