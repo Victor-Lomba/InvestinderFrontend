@@ -1,4 +1,5 @@
 import styled, { keyframes, css } from 'styled-components';
+import { shade } from 'polished';
 
 export const NEXT = "NEXT";
 export const PREV = "PREV";
@@ -6,7 +7,7 @@ export const PREV = "PREV";
 const appearFromDown = keyframes`
   from {
     opacity: 0;
-    transform: translateY(50px);
+    transform: translateY(100px);
   }
   to {
     opacity: 1;
@@ -93,6 +94,20 @@ export const Content = styled.div`
   flex-direction: column;
   justify-content: center;
 
+  a {
+    margin-left: 800px;
+    margin-top: -20px;
+    text-decoration: none;
+
+    color: #b0a2ee;
+
+    transition: color 0.2s;
+
+    &:hover {
+      color: ${shade(0.2, '#b0a2ee')}
+    }
+  }
+
   width: 100%;
   max-width: 900px;
   height: 100%;
@@ -101,7 +116,7 @@ export const Content = styled.div`
 `;
 
 export const AnimationContainer = styled.div`
-  animation: ${appearFromDown} 1s;
+  animation: ${appearFromDown} 1.5s;
 
   ${(props) =>
     props.isLiked &&
@@ -166,6 +181,8 @@ export const AnimationContainer = styled.div`
 export const ButtonContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  position: absolute;
+  margin-top: 550px;
 
   .but1 {
     animation: ${appearLeftBut} 1s;

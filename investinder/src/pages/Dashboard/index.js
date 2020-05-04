@@ -61,25 +61,27 @@ const Dashboard = () => {
   });
 
   useEffect(()=>{
-    if (user.interesses !== undefined) {
-      api.get('/profile/investidor/list', {
-        headers: {
-            uid: id,
-        }
-    }).then(response =>{
-        setProfiles(response.data);
-    });
-    }
-    if (user.empresa !== undefined){
-      api.get('/profile/consultor/list', {
-        headers: {
-            uid: id,
-        }
-    }).then(response =>{
-        setProfiles(response.data);
-    });
-    }
-}, [id]);
+    setTimeout(() => {
+      if (user.interesses !== undefined) {
+        api.get('/profile/investidor/list', {
+          headers: {
+              uid: id,
+          }
+      }).then(response =>{
+          setProfiles(response.data);
+      });
+      }
+      if (user.empresa !== undefined){
+        api.get('/profile/consultor/list', {
+          headers: {
+              uid: id,
+          }
+      }).then(response =>{
+          setProfiles(response.data);
+      });
+      }
+    }, 1200);
+}, [id, profiles, user.empresa, user.interesses]);
 
   async function handleLike(ID) {
     if (user.interesses !== undefined){
@@ -169,6 +171,10 @@ const Dashboard = () => {
           <LButton type='button' onClick={signOut}>
                     <FiPower size={18} />
                 </LButton>
+          <Link to="/matches">
+            <FiHeart />
+            Matches
+          </Link>
           <FormCont>
             <Form ref={formRef} onSubmit={search}>
               <Input name="search" icon={FiSearch} placeholder="Filtrar" />
@@ -176,15 +182,15 @@ const Dashboard = () => {
           </FormCont>
           <AnimationContainer {... handlers} isLiked={isLiked} isDisliked={isDisliked} dir={state.dir} sliding={state.sliding} >
             <img src={ !!profiles.pic ? profiles.pic : altpic }
-            alt="O usuário utiliza uma foto inválida."/>
+            alt={ altpic } />
 
-            <h1>{ profiles.name }</h1>
+            <h1>{ profiles.name ? profiles.name : 'Carregando novos perfis...'}</h1>
 
-            <h2>Bio:</h2>
+            <h2>{profiles.name ? 'Bio:' : 'Volte novamente mais tarde, se já explorou todos os perfis'}</h2>
             <h3>{ profiles.bio }</h3>
 
-            <h2>Empresa:</h2>
-            <h3>{ profiles.empresa }</h3>
+            <h2>{ profiles.empresa ? 'Empresa' : profiles.interesses ? 'Interesses:' : '' }</h2>
+            <h3>{ profiles.empresa ? profiles.empresa : profiles.interesses ? profiles.interesses : '' }</h3>
 
             <ButtonContainer>
               <RButton onClick={() => handleDislike(profiles.id)} className="but1" icon={FiX}></RButton>

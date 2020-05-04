@@ -7,6 +7,7 @@ import SignIn from '../pages/SingIn';
 import SignUp from '../pages/SignUp';
 import SignUpConsultor from '../pages/SignUpConsultor';
 import Dashboard from '../pages/Dashboard';
+import Matches from '../pages/Matches';
 
 const Routes = () => {
   return (
@@ -18,6 +19,7 @@ const Routes = () => {
         <Route path="/signupc" exact component={SignUpConsultor} />
 
         <Route path="/dashboard" exact component={Dashboard} isPrivate />
+        <Route path="/matches" exact component={Matches} isPrivate />
       </Switch>
     </>
   );
