@@ -130,7 +130,7 @@ const Dashboard = () => {
 
       }
       if (user.empresa !== undefined){
-        api.post(`/profile/investidor/${ID}/dislike`, {
+        api.post(`/profile/consultor/${ID}/dislike`, {
           UserId: id
         }).then(response =>{
           console.log(response.data);
