@@ -1,4 +1,5 @@
 import styled, { keyframes } from 'styled-components';
+import { shade } from 'polished';
 
 const appearFromRight = keyframes`
   from {
@@ -27,7 +28,27 @@ height: 100vh;
 margin-top: 0px;
 align-items: center;
 place-content: center;
+display: flex;
 justify-content: center;
+flex-direction: column;
+`;
+
+export const LinkContainer = styled.div`
+  margin-top: 10px;
+  margin-left: 1300px;
+  a {
+    margin-left: 800px;
+    margin-top: -20px;
+    text-decoration: none;
+
+    color: #b0a2ee;
+
+    transition: color 0.2s;
+
+    &:hover {
+      color: ${shade(0.2, '#b0a2ee')}
+    }
+  }
 `;
 
 export const Logo = styled.img`
@@ -41,16 +62,53 @@ export const Logo = styled.img`
   margin-right: 100px;
 `;
 
+export const ContainerCont = styled.div`
+  margin-top: 1200px;
+`
+
 export const Content = styled.div`
+  animation: ${appearFromLeft} 1s;
+  z-index: 0;
   display: flex;
-  align-self: center;
+  align-items: center;
   border-radius: 16px;
   justify-content: center;
+  place-content: center;
   background: #1f1f1f;
   width: 100%;
   max-width: 400px;
   height: 100%;
   max-height: 200px;
+
+  > div {
+    margin-top: 1000px;
+  }
+
+  h3 {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: -50px;
+    margin-right: 0px;
+    margin-left: 400px;
+    z-index: 1;
+  }
+  h1 {
+    font-size: 18px;
+    margin-right: 100px;
+    margin-left: 10px;
+    justify-content: center;
+    align-self: center;
+  }
+  h1 + h1 {
+    margin-right: 400px;
+    margin-top: 50px;
+    margin-left: -135px;
+  }
+
+  > div {
+    margin-top: 100px;
+  }
+  margin-bottom: 30px;
 `;
 
 

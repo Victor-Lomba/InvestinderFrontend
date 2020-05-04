@@ -86,6 +86,20 @@ export const Container = styled.div`
   align-items: center;
   place-content: center;
   justify-content: center;
+
+  a {
+    margin-left: 800px;
+    margin-top: -20px;
+    text-decoration: none;
+
+    color: #b0a2ee;
+
+    transition: color 0.2s;
+
+    &:hover {
+      color: ${shade(0.2, '#b0a2ee')}
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -269,4 +283,3 @@ export const FormCont = styled.div`
   margin-top: -60px;
   margin-bottom: 15px;
 `;
-
